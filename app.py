@@ -82,7 +82,7 @@ if uploaded_file is not None:
         #finding the busiest users in the group(Group Leave)
         if selected_user == 'Overall':
             st.title("Most Busy User")
-            x,new_df = helper.most_busy_users((df))
+            x,new_df = helper.most_busy_users(selected_user,df)
             fig,ax = plt.subplots()
     
             col1, col2 = st.columns(2)
