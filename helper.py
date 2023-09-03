@@ -24,6 +24,9 @@ def fetch_stats(selected_user,df):
     return num_messages, len(words),num_media_messages,len(links)
 
 def most_busy_users(df):
+    if selected_user != 'Overall':
+        df = df[df['user'] == selected_user]
+    df = df[df['user'] != 'group_notification']
     x = df['user'].value_counts().head()
     df = round((df['user'].value_counts() / df.shape[0]) * 100, 2).reset_index().rename(
         columns={'index': 'name', 'user': 'percent'})
